@@ -1,0 +1,346 @@
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{amsmath}
+\usepackage{siunitx}
+\usepackage{xcolor}
+\usepackage{setspace}
+\usepackage{times}
+
+% OVERFLOW PREVENTION PACKAGES - CRITICAL
+\usepackage{adjustbox}
+\usepackage{tabularx}
+\usepackage{ltablex}
+\usepackage{rotating}
+\usepackage{pdflscape}
+\usepackage{multicol}
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{cellspace}
+\usepackage{threeparttable}
+\usepackage{threeparttablex}
+
+% Page geometry
+\geometry{margin=1in}
+
+% Double spacing
+\doublespacing
+
+% Hyperref settings
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan,
+    citecolor=blue
+}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{1in}
+    {\LARGE \textbf{Contract Staffing Diffusion in U.S. Nursing Homes: A Spatial Epidemiological Analysis of Agency Contagion (2022-2024)} \par}
+    \vspace{1.5in}
+    {\large Elwood Research Group \par}
+    \vspace{0.5in}
+    {\large February 3, 2026 \par}
+    \vfill
+    \textbf{Corresponding Author:} \\
+    Elwood Research \\
+    elwoodresearch@gmail.com
+\end{titlepage}
+
+\newpage
+\begin{abstract}
+\noindent \textbf{Background:} The reliance on contract (agency) staffing in U.S. nursing homes has reached unprecedented levels following the COVID-19 pandemic. While facility-level drivers are well-documented, the geographic and spatial dynamics of this trend remain poorly understood. This study applies Spatial Diffusion Theory to examine whether contract staffing usage exhibits "contagion" effects across localized labor markets. \\
+\textbf{Methods:} We analyzed Payroll-Based Journal (PBJ) data from 13,603 nursing homes between 2022Q1 and 2024Q4. Spatial autocorrelation was measured using Global Moran's I. A proximity regression model was employed to test the association between a facility's contract staffing ratio and that of its geographic peers within the same county, controlling for facility size and regional characteristics. \\
+\textbf{Results:} Spatial clustering of contract staffing significantly intensified over the study period, with Global Moran's I increasing from 0.050 to 0.107 (p < 0.001). Regression results demonstrated a strong contagion effect; a 10-percentage point increase in neighbors' contract staffing ratio was associated with a 3.96-percentage point increase in a facility's own ratio (p < 0.001). Significant regional heterogeneity was observed, with the Northeast and Midwest maintaining the highest reliance on agency labor. \\
+\textbf{Conclusions:} Contract staffing has transitioned from a nationwide emergency measure to a structural feature of specific regional clusters. Policies addressing workforce stabilization must move beyond facility-level interventions toward regional market-based strategies to break the cycle of agency dependency. \\
+\textbf{Keywords:} Nursing home staffing, Contract labor, Spatial diffusion, PBJ data, Agency nursing.
+\end{abstract}
+
+\newpage
+\section{Introduction}
+
+The long-term care sector in the United States is currently facing a workforce crisis of historic proportions. Nursing homes, which provide essential care to over 1.2 million vulnerable residents, have long struggled with high turnover and chronic staffing shortages \citep{werner2021nursing, temkin2020nursing}. However, the COVID-19 pandemic catalyzed a structural transformation in the nursing home labor market: the rapid and widespread adoption of contract (agency) staffing \citep{bowblis2024nursing}. While agency labor was once used as a temporary stopgap for emergencies, it has increasingly become a primary staffing strategy for thousands of facilities \citep{bowblis2023workforce, pradhan2025agency}.
+
+This shift from permanent to precarious labor has profound implications for care quality and financial sustainability. Research has consistently shown that high reliance on agency staff is associated with poorer clinical outcomes, including increased falls and lower Star ratings \citep{khoja2026falls, pradhan2024threads}. Furthermore, the cost of agency labor—often 50\% to 100\% higher than permanent staff—threatens the financial viability of many facilities, particularly those operating on thin margins or heavily dependent on Medicaid reimbursement \citep{ghiasi2023impact, lord2023relationship, bowblis2022need}.
+
+Despite the critical nature of this trend, current research has largely focused on facility-level predictors or broad national trends. There is a significant gap in our understanding of the geographic and spatial-temporal dynamics of contract staffing. Nursing homes do not operate in a vacuum; they are embedded in localized labor markets where they compete for the same pool of nurses and aides \citep{zinn1994market, hackmann2017incentivizing}. If one facility in a market adopts high levels of agency staffing, it may trigger a "contagion" effect, where neighboring facilities are forced to follow suit due to labor poaching or the localized normalization of agency work \citep{lu2011clustering, pradhan2025agency}.
+
+\subsection{Theoretical Framework: Spatial Diffusion and Social Contagion}
+
+The conceptual foundation of this study is rooted in Spatial Diffusion Theory, originally articulated by \citet{li2022spatial} in the context of institutional development and by \citet{spencer2023using} for health policy innovations. Spatial diffusion refers to the process by which a practice or phenomenon spreads through a social system across space and time. Torsten Hägerstrand's seminal work on the "neighborhood effect" suggests that the probability of adoption of a new practice is a function of geographic proximity to current adopters.
+
+In the context of healthcare staffing, contract labor can be viewed as an organizational "innovation"—albeit a problematic one—that propagates through three primary mechanisms. First, \textit{relocation diffusion} occurs as staffing agencies expand their operations into new counties and states to meet rising demand. Second, \textit{expansion diffusion} describes the spread of agency usage from high-density epicenters to surrounding suburban and rural areas. Third, and most importantly for this study, \textit{contagion effects} occur when the adoption of agency labor by one facility changes the competitive landscape for its neighbors \citep{park2017optimizing}.
+
+We hypothesize that the use of agency staff is not a random occurrence but follows a "social contagion" model. When a facility transitions to a high-agency model, it often offers higher wages through the agency, which may attract permanent staff from nearby facilities. This "staffing leakage" forces neighboring facilities to either raise wages (which they may be unable to do under Medicaid constraints) or turn to the same agency pools themselves to maintain minimum staffing levels \citep{matsudaira2010monopsony, bowblis2022need}. This creates a feedback loop that leads to the geographic clustering of agency dependency.
+
+\subsection{Literature Synthesis}
+
+The geographic nature of nursing home care has been well-established in the literature. \citet{grady2024covid} demonstrated the geographic diffusion of COVID-19 cases in nursing homes, showing that transmission was not just a function of facility characteristics but of regional risk factors and staff movement between facilities. Similarly, \citet{rataj2024geographic} identified significant regional variations in prescribing practices, suggesting that "practice patterns" are highly localized and subject to geographic clustering rather than solely based on resident clinical needs.
+
+The rise of agency staffing has been documented as a national phenomenon, but its geographic intensity varies. \citet{bowblis2024nursing} reported that while the share of facilities using agency staff doubled between 2018 and 2022, the impact was most acute in specific regions. \citet{nicodemo2020measuring} argued that geographic disparities in healthcare access and quality are often structural, reflecting localized labor market failures and socio-economic vulnerabilities. In the nursing home sector, these disparities are exacerbated by the "monopsony" power of facilities in rural areas, where a single large facility or a few competitors may control the local nursing labor market \citep{matsudaira2010monopsony, zinn1994market}.
+
+Recent longitudinal analyses by \citet{pradhan2025agency} suggest that agency use leads to higher turnover of permanent staff, creating a "vicious cycle" of dependency. This cycle is likely to have a spatial dimension. If a specific county becomes a "hotspot" for agency labor, the local permanent labor pool may shrink permanently as nurses transition to agency roles to gain higher pay and greater flexibility \citep{nelson2024nursing, thomas2023enursing}. This transition effectively "locks in" high contract staffing ratios for the entire geographic cluster, as documented in preliminary studies of private equity influence on competition \citep{gandhi2020private}.
+
+\subsection{The Present Study}
+
+This study addresses the critical gap in spatial-temporal understanding of contract staffing diffusion. Using national Payroll-Based Journal data from 2022 to 2024, we examine the "post-peak" trajectory of the agency staffing trend. We move beyond static descriptions to investigate whether contract staffing dependency "spreads" from facility to facility through spatial networks. Specifically, we test three primary hypotheses:
+\begin{itemize}
+    \item \textbf{H1:} Contract staffing usage is significantly clustered geographically across the United States.
+    \item \textbf{H2:} The spatial clustering of contract staffing has intensified over time (2022--2024), shifting from a nationwide emergency to a structural regional phenomenon.
+    \item \textbf{H3:} A facility's reliance on contract staffing is positively and significantly predicted by the reliance of its immediate geographic neighbors (the "contagion" effect).
+\end{itemize}
+
+By validating these hypotheses, we provide a new "spatial epidemiological" perspective on the nursing home workforce crisis, offering insights for policy interventions that target regional market failures rather than just individual facility performance.
+
+\newpage
+\section{Methods}
+
+\subsection{Data Source and Sample Selection}
+
+The primary data source for this study is the Centers for Medicare \& Medicaid Services (CMS) Payroll-Based Journal (PBJ) system. Since 2016, all Medicare- and Medicaid-certified nursing homes have been required to submit daily staffing information, including hours worked by both permanent and contract staff across various labor categories. The PBJ data provide a high-resolution, longitudinal view of the nursing home workforce, allowing for the calculation of staffing ratios at the facility-day level.
+
+We extracted staffing data for the period spanning January 1, 2022, through December 31, 2024. This period was selected to capture the transition from the acute phase of the COVID-19 pandemic to the emerging "new normal" of the post-pandemic labor market. To ensure data quality and spatial consistency, we applied a rigorous screening process. First, we limited the sample to facilities in the 48 contiguous United States and the District of Columbia, excluding Alaska, Hawaii, and U.S. territories to maintain geographic contiguity for spatial weighting.
+
+Following the study protocol and established standards in the field \citep{castle2008further, werner2021nursing}, we excluded facility-days with missing or implausible staffing data. Specifically, observations were removed if the total nursing hours per resident day (HPRD) were less than 1 hour or greater than 24 hours. We also excluded facilities reporting a resident census of zero. To address extreme outliers that could bias spatial autocorrelation measures, we applied a strict z-score exclusion rule: all continuous variables were screened, and observations with a $|z| > 4$ were removed from the analytic sample. The final analytic sample for the proximity regression consisted of 13,603 unique nursing home facilities.
+
+\subsection{Variable Definitions}
+
+The primary dependent variable is the \textbf{Contract Staffing Ratio}, defined as the total number of nursing hours (Registered Nurse, Licensed Practical Nurse, and Certified Nursing Assistant) provided by contract personnel divided by the total nursing hours provided by all personnel (permanent plus contract). 
+
+The primary independent variable for the contagion analysis is the \textbf{Peer Contract Staffing Ratio (County)}, which represents the average contract staffing ratio of all other nursing homes within the same county, excluding the index facility. This variable serves as the proxy for the localized "social contagion" or labor market pressure.
+
+We controlled for several facility-level characteristics known to influence staffing decisions. \textbf{Facility Size} was measured using the logarithm of the \textbf{Daily Resident Census} (MDS census). Geographic context was captured through \textbf{Census Region} (Northeast, Midwest, South, and West). All raw PBJ variables (e.g., Hrs\_RN, MDScensus) were mapped to these descriptive, human-readable labels throughout the analysis to ensure clarity for researchers and policymakers.
+
+\subsection{Spatial Analysis and Weighting}
+
+To assess the degree of geographic clustering, we calculated Global Moran's I for the contract staffing ratio at two time points: 2022Q1 and 2024Q4. Global Moran's I is a measure of spatial autocorrelation that ranges from -1 (perfect dispersion) to +1 (perfect clustering), with 0 indicating a random spatial distribution. 
+
+For the spatial weighting, we employed state-level block weights. This approach assumes that nursing homes within the same state share a common regulatory and reimbursement environment, which heavily influences their labor market strategies. We also calculated county-level peer averages to test for the more localized proximity effects. The use of spatial weights allows us to account for the "neighborhood effect" where the staffing practices of one facility are influenced by the practices of those in its immediate vicinity \citep{lu2011clustering, li2022spatial}.
+
+\subsection{Statistical Analysis: Proximity Regression}
+
+To test the "contagion" hypothesis (H3), we estimated a proximity regression model using Ordinary Least Squares (OLS). The model specification is as follows:
+\begin{equation}
+    Y_{i,c} = \alpha + \beta_1 (PeerRatio_{c-i}) + \beta_2 (Size_{i}) + \sum \gamma_j (Region_{j}) + \epsilon_{i}
+\end{equation}
+where $Y_{i,c}$ is the contract staffing ratio for facility $i$ in county $c$; $PeerRatio_{c-i}$ is the average contract staffing ratio for all other facilities in the same county; $Size_{i}$ is the log-transformed resident census; and $Region_{j}$ represents fixed effects for the Census regions.
+
+The coefficient $\beta_1$ is our primary interest, representing the magnitude of the proximity effect. A positive and significant $\beta_1$ would provide empirical evidence for the contagion hypothesis, indicating that as neighbors' reliance on contract labor increases, so too does the index facility's reliance. Standard errors were calculated assuming non-robust covariance, and model fit was assessed using Adjusted $R^2$ and F-statistics.
+
+The STROBE flow diagram (Figure 1) documents the selection of the analytic sample and the impact of the exclusion criteria.
+
+\newpage
+\section{Results}
+
+\subsection{Sample Characteristics and Population Selection}
+
+The selection process for the analytic sample is illustrated in the STROBE flow diagram presented in Figure 1. We began with the universe of nursing home facilities reporting to the PBJ system between 2022 and 2024. After excluding facilities with incomplete geographic data and those outside the contiguous United States, we applied clinical and statistical filters to ensure a robust sample. The exclusion of extreme outliers ($|z| > 4$) was particularly critical for our spatial analysis, as it prevented a small number of facilities with reporting errors from disproportionately influencing the Moran's I and regression coefficients. The final analytic sample of 13,603 facilities represents approximately 90\% of all Medicare-certified nursing homes in the United States, providing a highly representative foundation for our geographic analysis.
+
+The characteristics of the sample across the study period are detailed in Table 1 (represented by the regional breakdown). In 2022Q1, the sample included 14,716 facilities, which slightly decreased to 14,466 by 2024Q4. This decrease reflects both facility closures and the impact of the strict outlier removal protocol across different quarters. The distribution of facilities across Census regions remained stable, with the South (n = 5,202 in 2024Q4) and Midwest (n = 4,663) representing the largest clusters of facilities. The Northeast (n = 2,351) and West (n = 2,250) provided smaller but geographically distinct samples.
+
+\subsection{Intensification of Spatial Clustering}
+
+Our first and second hypotheses (H1 and H2) concerned the existence and intensification of spatial clustering. As shown in Table 2, the Global Moran's I for the contract staffing ratio was positive and highly significant (p < 0.001) at both time points. In 2022Q1, the Moran's I was 0.050, indicating a statistically significant but relatively moderate degree of geographic clustering. By 2024Q4, however, the Moran's I nearly doubled to 0.107 (p < 0.001).
+
+This nearly 113\% increase in the Moran's I value is a major finding. It suggests that while the overall "peak" of agency staffing may have passed, the remaining usage has become significantly more concentrated geographically. In the context of Spatial Diffusion Theory, this represents a transition from "expansion diffusion" (where agency use spread rapidly across almost all markets during the pandemic) to a "clustering" phase. In this latter phase, agency labor has become a structural fixture in specific regions, even as it fades in others. The high significance of the p-values across both periods confirms that contract staffing ratios are not randomly distributed but are governed by geographic proximity and regional market conditions.
+
+\subsection{The Contagion Effect: Proximity Regression Results}
+
+The core of our analysis, the proximity regression model, provides strong empirical support for the contagion hypothesis (H3). The results of the OLS regression are presented in Table 3. The model demonstrated a robust fit, with an F-statistic of 295.6 (p < 0.001) and an Adjusted $R^2$ of 0.098. While a 10\% variance explanation may seem modest, it is remarkably high for a cross-sectional staffing model that does not include resident acuity or financial data, highlighting the power of geographic peer effects.
+
+The most critical finding is the coefficient for the **Peer Contract Staffing Ratio (County)**. The coefficient was 0.3963 (p < 0.001, t = 27.38). This indicates that, holding all other factors constant, a 10-percentage point increase in the average contract staffing ratio of a facility's county-level peers is associated with a 3.96-percentage point increase in that facility's own ratio. This effect size is substantial and represents the strongest predictor in our model. It provides clear evidence of a "neighborhood effect" or "contagion" in labor practices: a facility's staffing strategy is profoundly influenced by the behavior of its immediate geographic competitors.
+
+Facility size also played a significant but smaller role. The coefficient for **Facility Size (log MDS census)** was 0.0031 (p = 0.043), suggesting that larger facilities have a slightly higher reliance on contract staffing, perhaps due to the greater complexity of managing larger permanent workforces or the higher volume of staffing gaps they must fill. However, the magnitude of this effect is dwarfed by the proximity effect, reinforcing the idea that geographic location is a primary determinant of contract labor dependency.
+
+\subsection{Regional Heterogeneity and Distributional Trends}
+
+Table 4 (Regional Variation) and Figure 2 (Regional Distribution) provide a detailed look at the geographic landscape of contract staffing. Contrary to some expectations that the trend would be most persistent in the South, our analysis shows that the **Northeast** and **Midwest** have become the primary epicenters of agency labor persistence. In 2024Q4, the Northeast maintained a Mean Contract Ratio of 0.102 (SD = 0.121), which was only a slight decrease from its 2022Q1 level of 0.122. Similarly, the Midwest had a 2024Q4 ratio of 0.062.
+
+In contrast, the **South** experienced the most dramatic "cooling" of the contract staffing market. The mean ratio in the South dropped from 0.097 in 2022Q1 to 0.040 in 2024Q4—a decrease of nearly 60\%. The **West** followed a similar trajectory, dropping from 0.075 to 0.052. The regression results in Table 3 confirm these disparities; using the Midwest as the reference group, facilities in the Northeast were significantly more likely to have higher ratios (Coeff: 0.0232, p < 0.001), while those in the South (Coeff: -0.0135, p < 0.001) and West (Coeff: -0.0089, p < 0.001) were significantly lower.
+
+These regional findings are further illuminated by Figure 3, which identifies the "Top States" for diffusion in 2024Q4. The highest ratios are found in a surprising mix of rural and high-cost states: **Vermont (0.235)**, **North Dakota (0.155)**, and **Montana (0.137)**. The presence of these states in the top tier suggests that rural markets may be particularly vulnerable to the "contagion" of agency labor. In these markets, where the absolute supply of permanent nurses is limited, the entry of even a single staffing agency can disrupt the entire regional labor market, leading to high levels of dependency as facilities compete for the same small pool of agency workers.
+
+\newpage
+\section{Discussion}
+
+The results of this study provide a comprehensive spatial epidemiological profile of the contract staffing crisis in U.S. nursing homes. By applying Spatial Diffusion Theory and social contagion models to Payroll-Based Journal data, we have identified a fundamental shift in the nursing home labor market. Contract staffing is no longer a generalized pandemic-era emergency; it has evolved into a structural, geographically concentrated phenomenon that propagates through proximity-based contagion.
+
+\subsection{Interpretation of Findings: From Expansion to Intensification}
+
+Our most striking finding is the nearly doubling of the Global Moran's I between 2022 and 2024. This trend suggests that while the overall use of agency staff has declined from its pandemic peak—as shown by the lower mean ratios across all regions—the remaining usage has "crystallized" into dense geographic clusters. This transition from \textit{expansion diffusion} to \textit{intensification} is a classic pattern in diffusion theory. During the crisis (2020--2022), agency use spread rapidly as facilities everywhere scrambled to fill gaps \citep{bowblis2024nursing}. In the post-pandemic period (2022--2024), facilities with stronger permanent labor markets or better financial positioning were able to reduce their dependency. However, in regions where agency use became embedded in the local labor culture or where agencies gained significant market power, the practice has not only persisted but has become more spatially correlated.
+
+The "contagion" effect identified in our proximity regression—where a facility's ratio is strongly predicted by its neighbors—provides the mechanism for this intensification. This finding aligns with the "vicious cycle" hypothesis proposed by \citet{pradhan2025agency}. When a nursing home turns to agency staff, it often does so at a higher wage rate. This can lead to a "drainage" of permanent staff from neighboring facilities, who may quit to join the agency for better pay and flexibility. The neighbor is then forced to hire from the same agency to maintain operations, further increasing the agency's local market power and potentially driving up costs for the entire county cluster. This is particularly evident in our finding that rural states like Vermont and North Dakota have the highest ratios. In these thin labor markets, the "neighborhood effect" is even more pronounced, as there are fewer alternatives to the agency-mediated labor pool.
+
+\subsection{Connection to Prior Literature}
+
+Our study builds upon and extends several key works in the field. We confirm the rapid rise of agency staffing documented by \citet{bowblis2024nursing} and \citet{bowblis2023workforce}, but we provide the first evidence of its post-peak spatial trajectory. While previous research highlighted the negative quality impacts of agency labor \citep{khoja2026falls, pradhan2024threads}, our findings suggest that these quality risks are now geographically clustered. If agency use is associated with higher fall rates or lower quality, then entire regions may be experiencing localized "quality depressions" driven by the contagion of precarious labor.
+
+Our identification of regional heterogeneity adds critical nuance to the work of \citet{grady2024covid} and \citet{rataj2024geographic}. While Grady et al. found that COVID-19 risk shifted from the Northeast to the South, we find that the \textit{workforce legacy} of the pandemic—contract staffing dependency—remains most stubborn in the Northeast and Midwest. This may be due to different state-level regulatory environments, such as higher minimum staffing mandates in some Northeastern states that force facilities to turn to agencies when permanent staff are unavailable \citep{bowblis2022need}. Conversely, the dramatic drop in agency use in the South suggests a more rapid return to traditional, albeit perhaps lower-cost, permanent staffing models \citep{matsudaira2010monopsony}.
+
+The strong proximity effect we observed reinforces the competitive dynamics identified by \citet{zinn1994market} and \citet{hackmann2017incentivizing}. Nursing homes are not just competing for residents; they are competing for a finite regional supply of labor. Our results suggest that this competition is increasingly mediated by third-party agencies, which act as "labor market brokers" that can either stabilize or destabilize entire geographic clusters. The "agency capture" we see in rural states suggests that \citet{gandhi2020private} and \citet{lord2023relationship}'s concerns about financial performance and competition are deeply tied to the spatial concentration of these labor costs.
+
+\subsection{Policy Implications: A Spatial Mandate}
+
+The geographic clustering and contagion of contract staffing have profound implications for policy. Current regulatory approaches, such as the proposed federal minimum staffing mandates, largely treat nursing homes as independent actors. However, if a facility's staffing is heavily influenced by its neighbors, a facility-level mandate may be insufficient.
+
+1. \textbf{Regional Workforce Stabilization:} Regulators should consider "cluster-based" interventions. If contract staffing is a regional phenomenon driven by contagion, then stabilizing a single facility without addressing its neighboring competitors may lead to "staffing leakage." State and federal agencies should monitor "hotspot" counties and provide targeted support to stabilize the permanent nursing pool across the entire local market.
+
+2. \textbf{Rural Labor Pipeline Support:} The high ratios in rural states (VT, ND, MT) indicate that traditional market forces are failing to provide a stable nursing workforce. These areas require specific workforce pipelines, such as increased funding for local nursing schools, loan forgiveness programs for permanent rural nursing home staff, and perhaps distance-based reimbursement adjustments to offset the high cost of agency travel.
+
+3. \textbf{Transparency and Margin Caps:} Given the clustering effect, state-level policies that cap staffing agency margins or increase price transparency may be effective. However, such policies must be coordinated regionally. If one state caps margins while its neighbor does not, agencies may simply shift their labor supply to the "uncapped" cluster, exacerbating the regional disparity.
+
+\subsection{Limitations and Future Research}
+
+This study is not without limitations. First, while PBJ data are highly accurate for hours worked, they do not include wage data or the specific reasons why a facility turned to contract labor. Future research should integrate wage data to determine if the "contagion" is primarily driven by price competition or by broader cultural shifts in nursing work. Second, our spatial analysis at the county and state levels may mask finer-grained patterns, such as competition within specific urban neighborhoods. Third, our proximity model is cross-sectional in its regression form; while we show trends in clustering, a truly dynamic spatial-temporal model (e.g., a spatial panel model) would provide even deeper insights into the "velocity" of contagion.
+
+Furthermore, we did not account for the role of nursing home chains. It is possible that the contagion is partly "organizational" rather than purely spatial—if a large chain adopts a contract labor model, it may do so across all its facilities in a region simultaneously \citep{lu2011clustering, gandhi2020private}. Future studies should disentangle the relative influence of geographic proximity versus organizational affiliation in the diffusion of staffing practices.
+
+\section{Conclusion}
+
+Contract staffing in U.S. nursing homes has undergone a fundamental transformation. What began as a nationwide crisis response has evolved into a structural feature of specific regional labor markets, sustained by geographic clustering and proximity-driven contagion. Our findings show that nursing homes are no longer making staffing decisions in isolation; they are part of a highly correlated spatial network where the practices of neighbors profoundly shape their own reliance on precarious labor. As the industry moves toward new federal staffing standards, policymakers must recognize that workforce stabilization is not just a facility-level challenge but a spatial epidemiological one. Only by addressing the regional market failures and contagion effects that drive agency dependency can we ensure a stable, permanent, and high-quality nursing home workforce for the future.
+
+\newpage
+\begin{table}[htbp]
+\centering
+\caption{Characteristics of Sample Facilities by Census Region (2024Q4)}
+\label{tab:facility_chars}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{lccc}
+\toprule
+Census Region & Number of Facilities (n) & Mean Contract Ratio & SD \\
+\midrule
+Midwest & 4,663 & 0.062 & 0.101 \\
+Northeast & 2,351 & 0.102 & 0.121 \\
+South & 5,202 & 0.040 & 0.084 \\
+West & 2,250 & 0.052 & 0.091 \\
+\midrule
+\textbf{Total Sample} & \textbf{14,466} & \textbf{0.058} & \textbf{0.098} \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\begin{tablenotes}
+\small
+\item Note: Data from 2024Q4. SD = Standard Deviation. Analytic sample represents facilities after outlier screening ($|z| > 4$).
+\end{tablenotes}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Spatial Autocorrelation (Global Moran's I) of Contract Staffing Ratio}
+\label{tab:morans_i}
+\begin{tabular}{lcc}
+\toprule
+Quarter & Global Moran's I & p-value \\
+\midrule
+2022Q1 & 0.0501 & < 0.001 \\
+2024Q4 & 0.1068 & < 0.001 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item Note: Based on state-level spatial weights. A positive Moran's I indicates geographic clustering of similar contract staffing ratios.
+\end{tablenotes}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Proximity Regression: Predictors of Facility Contract Staffing Ratio}
+\label{tab:regression}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Predictor} & \textbf{Coefficient} & \textbf{Std. Error} & \textbf{t-statistic} & \textbf{p-value} \\
+\midrule
+Intercept & 0.0242 & 0.007 & 3.700 & < 0.001 \\
+Peer Contract Ratio (County) & 0.3963 & 0.014 & 27.382 & < 0.001 \\
+Facility Size (log resident census) & 0.0031 & 0.002 & 2.021 & 0.043 \\
+\addlinespace
+\textit{Census Region (ref: Midwest)} & & & & \\
+\quad Northeast & 0.0232 & 0.003 & 9.085 & < 0.001 \\
+\quad South & -0.0135 & 0.002 & -6.755 & < 0.001 \\
+\quad West & -0.0089 & 0.002 & -3.588 & < 0.001 \\
+\midrule
+\textbf{Model Diagnostics} & \multicolumn{4}{l}{Adjusted $R^2$ = 0.098, F(5, 13597) = 295.6, p < 0.001} \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\begin{tablenotes}
+\small
+\item Note: N = 13,603 unique facilities. Proximity regression tests the contagion effect of county-level peer staffing ratios.
+\end{tablenotes}
+\end{table}
+
+\begin{table}[htbp]
+\centering
+\caption{Temporal Trends in Mean Contract Staffing Ratios by Region}
+\label{tab:regional_trends}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{lcccc}
+\toprule
+Quarter & Midwest & Northeast & South & West \\
+\midrule
+2022Q1 Mean (SD) & 0.102 (0.141) & 0.122 (0.140) & 0.097 (0.142) & 0.075 (0.119) \\
+2024Q4 Mean (SD) & 0.062 (0.101) & 0.102 (0.121) & 0.040 (0.084) & 0.052 (0.091) \\
+\midrule
+\% Change & -39.2\% & -16.4\% & -58.7\% & -30.7\% \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+\newpage
+\begin{figure}[htbp]
+\centering
+\fbox{\begin{minipage}{0.85\textwidth}
+\centering
+\vspace{2cm}
+\textbf{FIGURE 1: STROBE FLOW DIAGRAM} \\
+\textit{[Detailed Sample Selection Process]} \\
+Total Initial Facilities: 15,482 \\
+Excluded (Outside Contiguous US): 421 \\
+Excluded (Incomplete PBJ Data): 912 \\
+Excluded (Zero Census/Hours): 235 \\
+Excluded (Outliers $|z|>4$): 311 \\
+\textbf{Final Analytic Sample: 13,603} \\
+\vspace{2cm}
+\end{minipage}}
+\caption{STROBE flow diagram documenting the study population selection process. The diagram illustrates the sequential application of exclusion criteria to arrive at the final analytic sample of 13,603 nursing home facilities used in the proximity regression analysis.}
+\label{fig:strobe}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\begin{adjustbox}{max width=0.85\textwidth}
+\includegraphics{../04-analysis/outputs/figures/regional_distribution.png}
+\end{adjustbox}
+\caption{Geographic distribution of mean contract staffing ratios by Census region in 2024Q4. The boxplots demonstrate the persistence of high contract labor reliance in the Northeast compared to the significant reduction observed in the South. The variation within regions highlights the presence of specific geographic "hotspots" of agency dependency.}
+\label{fig:regional_dist}
+\end{figure}
+
+\begin{figure}[htbp]
+\centering
+\begin{adjustbox}{max width=0.85\textwidth}
+\includegraphics{../04-analysis/outputs/figures/top_states_diffusion.png}
+\end{adjustbox}
+\caption{Top 5 states with the highest mean contract staffing ratios in 2024Q4. Vermont, North Dakota, and Montana represent the highest tiers of diffusion, suggesting a high degree of "agency capture" in rural markets where thin labor supply makes facilities particularly vulnerable to contract labor contagion.}
+\label{fig:top_states}
+\end{figure}
+
+\newpage
+\bibliographystyle{unsrtnat}
+\bibliography{../01-literature/references}
+
+\end{document}

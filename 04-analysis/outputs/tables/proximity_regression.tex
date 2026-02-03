@@ -1,0 +1,37 @@
+\begin{center}
+\begin{tabular}{lclc}
+\toprule
+\textbf{Dep. Variable:}                 & Contract\_Staffing\_Ratio & \textbf{  R-squared:         } &     0.098   \\
+\textbf{Model:}                         &            OLS            & \textbf{  Adj. R-squared:    } &     0.098   \\
+\textbf{Method:}                        &       Least Squares       & \textbf{  F-statistic:       } &     295.6   \\
+\textbf{Date:}                          &      Tue, 03 Feb 2026     & \textbf{  Prob (F-statistic):} & 2.56e-301   \\
+\textbf{Time:}                          &          23:02:40         & \textbf{  Log-Likelihood:    } &    12991.   \\
+\textbf{No. Observations:}              &            13603          & \textbf{  AIC:               } & -2.597e+04  \\
+\textbf{Df Residuals:}                  &            13597          & \textbf{  BIC:               } & -2.593e+04  \\
+\textbf{Df Model:}                      &                5          & \textbf{                     } &             \\
+\textbf{Covariance Type:}               &         nonrobust         & \textbf{                     } &             \\
+\bottomrule
+\end{tabular}
+\begin{tabular}{lcccccc}
+                                        & \textbf{coef} & \textbf{std err} & \textbf{t} & \textbf{P$> |$t$|$} & \textbf{[0.025} & \textbf{0.975]}  \\
+\midrule
+\textbf{Intercept}                      &       0.0242  &        0.007     &     3.700  &         0.000        &        0.011    &        0.037     \\
+\textbf{C(Census\_Region)[T.Northeast]} &       0.0232  &        0.003     &     9.085  &         0.000        &        0.018    &        0.028     \\
+\textbf{C(Census\_Region)[T.South]}     &      -0.0135  &        0.002     &    -6.755  &         0.000        &       -0.017    &       -0.010     \\
+\textbf{C(Census\_Region)[T.West]}      &      -0.0089  &        0.002     &    -3.588  &         0.000        &       -0.014    &       -0.004     \\
+\textbf{Peer\_Contract\_Ratio\_County}  &       0.3963  &        0.014     &    27.382  &         0.000        &        0.368    &        0.425     \\
+\textbf{Facility\_Size\_log\_MDS}       &       0.0031  &        0.002     &     2.021  &         0.043        &     9.19e-05    &        0.006     \\
+\bottomrule
+\end{tabular}
+\begin{tabular}{lclc}
+\textbf{Omnibus:}       & 5287.317 & \textbf{  Durbin-Watson:     } &     1.943  \\
+\textbf{Prob(Omnibus):} &   0.000  & \textbf{  Jarque-Bera (JB):  } & 19664.161  \\
+\textbf{Skew:}          &   1.967  & \textbf{  Prob(JB):          } &      0.00  \\
+\textbf{Kurtosis:}      &   7.383  & \textbf{  Cond. No.          } &      81.7  \\
+\bottomrule
+\end{tabular}
+%\caption{OLS Regression Results}
+\end{center}
+
+Notes: \newline
+ [1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

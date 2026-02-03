@@ -1,0 +1,152 @@
+\begin{thebibliography}{24}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Werner and Coe(2021)]{werner2021nursing}
+Rachel~M. Werner and Norma~B. Coe.
+\newblock Nursing home staffing levels did not change significantly during covid-19.
+\newblock \emph{Health Affairs}, 40\penalty0 (5):\penalty0 795--801, 2021.
+\newblock \doi{10.1377/hlthaff.2020.02351}.
+
+\bibitem[Temkin-Greener et~al.(2020)Temkin-Greener, Cen, and Li]{temkin2020nursing}
+Helena Temkin-Greener, Xi~Cen, and Yue Li.
+\newblock Nursing home staff turnover and perceived patient safety culture: Results from a national survey.
+\newblock \emph{The Gerontologist}, 60\penalty0 (7):\penalty0 1303--1313, 2020.
+\newblock \doi{10.1093/geront/gnaa015}.
+
+\bibitem[Bowblis et~al.(2024)Bowblis, Brunt, Xu, Applebaum, and Grabowski]{bowblis2024nursing}
+John~R. Bowblis, Christopher~S. Brunt, Huiwen Xu, Robert Applebaum, and David~C. Grabowski.
+\newblock Nursing homes increasingly rely on staffing agencies for direct care nursing.
+\newblock \emph{Health Affairs}, 43\penalty0 (2):\penalty0 197--204, 2024.
+\newblock \doi{10.1377/hlthaff.2023.01101}.
+
+\bibitem[Bowblis et~al.(2023)Bowblis, Brunt, Xu, Applebaum, and Grabowski]{bowblis2023workforce}
+John~R. Bowblis, Christopher~S. Brunt, Huiwen Xu, Robert Applebaum, and David~C. Grabowski.
+\newblock Nursing home workforce challenges: Increased nursing staff labor costs and use of agency staff from 2017 to 2021.
+\newblock \emph{Innovation in Aging}, 7\penalty0 (Supplement\_1):\penalty0 36, 2023.
+\newblock \doi{10.1093/geroni/igad104.0122}.
+
+\bibitem[Pradhan et~al.(2025)Pradhan, Davlyatov, Chisholm, Williams, Sen, Manning, and Weech-Maldonado]{pradhan2025agency}
+Rohit Pradhan, Ganisher~K. Davlyatov, Laren Chisholm, Cynthia Williams, Keya Sen, Amelia Manning, and Robert Weech-Maldonado.
+\newblock Agency nursing staff utilization and turnover in nursing homes: A longitudinal analysis.
+\newblock \emph{Healthcare}, 13\penalty0 (4):\penalty0 379, 2025.
+\newblock \doi{10.3390/healthcare13040379}.
+
+\bibitem[Khoja et~al.(2026)Khoja, MacLean, Lee, Joshi, Daiello, and Berry]{khoja2026falls}
+Jenna~S. Khoja, Kylee~G. MacLean, Yoojin Lee, Richa Joshi, Lori~A. Daiello, and Sarah~D. Berry.
+\newblock Falls in the nursing home: The impact of staffing levels and agency staff use on injurious falls.
+\newblock \emph{Journal of the American Medical Directors Association}, 27\penalty0 (1):\penalty0 106083, 2026.
+\newblock \doi{10.1016/j.jamda.2025.106083}.
+
+\bibitem[Pradhan et~al.(2024)Pradhan, Ghiasi, Davlyatov, Gupta, and Weech-Maldonado]{pradhan2024threads}
+Rohit Pradhan, Afore Ghiasi, Ganisher~K. Davlyatov, Shivani Gupta, and Robert Weech-Maldonado.
+\newblock Threads of care: Unraveling the impact of agency nursing staff on nursing home quality.
+\newblock \emph{Medical Care}, 62\penalty0 (12):\penalty0 842--850, 2024.
+\newblock \doi{10.1097/MLR.0000000000002114}.
+
+\bibitem[Ghiasi et~al.(2023)Ghiasi, Davlyatov, Pradhan, and Lord]{ghiasi2023impact}
+Afore Ghiasi, Ganisher~K. Davlyatov, Rohit Pradhan, and Jeannie Lord.
+\newblock The impact of contract nurse utilization on nursing home financial performance.
+\newblock \emph{Innovation in Aging}, 7\penalty0 (Supplement\_1):\penalty0 226, 2023.
+\newblock \doi{10.1093/geroni/igad104.0747}.
+
+\bibitem[Lord et~al.(2023)Lord, Ghiasi, Pradhan, Gupta, Orewa, Davlyatov, and Weech-Maldonado]{lord2023relationship}
+Jeannie Lord, Afore Ghiasi, Rohit Pradhan, Shivani Gupta, Gregory~N. Orewa, Ganisher~K. Davlyatov, and Robert Weech-Maldonado.
+\newblock The relationship between agency nursing staff and nursing home financial performance: a longitudinal study.
+\newblock \emph{Journal of Hospital Management and Health Policy}, 7:\penalty0 80, 2023.
+\newblock \doi{10.21037/jhmhp-24-80}.
+
+\bibitem[Bowblis(2022)]{bowblis2022need}
+John~R. Bowblis.
+\newblock The need for an economically feasible nursing home staffing regulation: Evaluating an acuity-based nursing staff benchmark.
+\newblock \emph{Innovation in Aging}, 6\penalty0 (4):\penalty0 igac017, 2022.
+\newblock \doi{10.1093/geroni/igac017}.
+
+\bibitem[Zinn(1994)]{zinn1994market}
+Jacqueline~S. Zinn.
+\newblock Market competition and the quality of nursing home care.
+\newblock \emph{Journal of Health Politics, Policy and Law}, 19\penalty0 (3):\penalty0 555--582, 1994.
+\newblock \doi{10.1215/03616878-19-3-555}.
+
+\bibitem[Hackmann(2017)]{hackmann2017incentivizing}
+Martin~B. Hackmann.
+\newblock Incentivizing better quality of care: The role of medicaid and competition in the nursing home industry.
+\newblock \emph{American Economic Review}, 107\penalty0 (12):\penalty0 3616--3642, 2017.
+\newblock \doi{10.1257/aer.20151057}.
+
+\bibitem[Lu and Wedig(2011)]{lu2011clustering}
+Susan~F. Lu and Gerard~J. Wedig.
+\newblock Clustering, agency costs and operating efficiency: Evidence from nursing home chains.
+\newblock \emph{SSRN Electronic Journal}, 2011.
+\newblock \doi{10.2139/ssrn.1783054}.
+
+\bibitem[Li et~al.(2022)Li, Li, and Huang]{li2022spatial}
+Xiang Li, Chen Li, and Yi~Huang.
+\newblock Spatial-temporal analysis of urban-rural differences in the development of elderly care institutions in china.
+\newblock \emph{Frontiers in Public Health}, 10:\penalty0 1086388, 2022.
+\newblock \doi{10.3389/fpubh.2022.1086388}.
+
+\bibitem[Spencer et~al.(2023)Spencer, Tanner, and Lu]{spencer2023using}
+Lisa Spencer, Anita Tanner, and Kristina Lu.
+\newblock Using diffusion of innovation theory to address health of the homeless in hawaii.
+\newblock \emph{Healthcare}, 11\penalty0 (21):\penalty0 2828, 2023.
+\newblock \doi{10.3390/healthcare11212828}.
+
+\bibitem[Park(2017)]{park2017optimizing}
+Claire Su-Yeon Park.
+\newblock Optimizing staffing, quality, and cost in home healthcare nursing: theory synthesis.
+\newblock \emph{Journal of Advanced Nursing}, 73\penalty0 (8):\penalty0 1838--1847, 2017.
+\newblock \doi{10.1111/jan.13284}.
+
+\bibitem[Matsudaira(2010)]{matsudaira2010monopsony}
+Jordan~D. Matsudaira.
+\newblock Monopsony in the low-wage labor market? evidence from minimum nurse staffing regulations.
+\newblock \emph{Review of Economics and Statistics}, 92\penalty0 (3):\penalty0 583--602, 2010.
+\newblock \doi{10.1162/REST_a_00361}.
+
+\bibitem[Grady et~al.(2024)Grady, Pavan, Qiong, Rachael, and Ligmann-Zielinska]{grady2024covid}
+Sue~C. Grady, Amanda Pavan, Zhang Qiong, Portelli Rachael, and Arika Ligmann-Zielinska.
+\newblock Covid-19 in nursing homes: Geographic diffusion and regional risk factors from january 1 to july 26, 2020 of the pandemic.
+\newblock \emph{PLOS ONE}, 19\penalty0 (8):\penalty0 e0308339, 2024.
+\newblock \doi{10.1371/journal.pone.0308339}.
+
+\bibitem[Rataj et~al.(2024)Rataj, Alcusky, Baek, Ott, and Lapane]{rataj2024geographic}
+Alison~C. Rataj, Matthew Alcusky, Jonggyu Baek, Brian~R. Ott, and Kate~L. Lapane.
+\newblock Geographic variation of antidementia and antipsychotic medication use among us nursing home residents with dementia.
+\newblock \emph{Medical Care}, 62\penalty0 (5):\penalty0 312--320, 2024.
+\newblock \doi{10.1097/MLR.0000000000002016}.
+
+\bibitem[Nicodemo et~al.(2020)Nicodemo, Barzin, Cavalli, Lasserson, Moscone, Redding, and Shaikh]{nicodemo2020measuring}
+Catia Nicodemo, Samira Barzin, Nicolò Cavalli, Daniel Lasserson, Francesco Moscone, Stuart Redding, and Mujaheed Shaikh.
+\newblock Measuring geographical disparities in england at the time of covid-19: results using a composite indicator of population vulnerability.
+\newblock \emph{BMJ Open}, 10\penalty0 (9):\penalty0 e039749, 2020.
+\newblock \doi{10.1136/bmjopen-2020-039749}.
+
+\bibitem[Nelson et~al.(2024)Nelson, Weil, McSweeney-Feld, Yang, Barry, and Thayer]{nelson2024nursing}
+H.~W. Nelson, Joyce Weil, Mary McSweeney-Feld, Bo~Kyum Yang, Theresa Barry, and Natalie Thayer.
+\newblock Nursing home administrators' experiences of work stress and intention to quit during the covid-19 pandemic.
+\newblock \emph{The Gerontologist}, 64\penalty0 (11):\penalty0 gnae165, 2024.
+\newblock \doi{10.1093/geront/gnae165}.
+
+\bibitem[Thomas et~al.(2023)Thomas, Edwards, Bradwell, Chatterjee, and Jones]{thomas2023enursing}
+Alistair Thomas, Kevin Edwards, Hannah Bradwell, Arunangsu Chatterjee, and Ray~B. Jones.
+\newblock E-nursing homes: transforming access to nurses in nursing homes in response to the staffing crisis.
+\newblock \emph{British Journal of Nursing}, 32\penalty0 (9):\penalty0 428--432, 2023.
+\newblock \doi{10.12968/bjon.2023.32.9.428}.
+
+\bibitem[Gandhi et~al.(2020)Gandhi, Song, and Upadrashta]{gandhi2020private}
+Ashvin~D. Gandhi, YoungJun Song, and Prabhava Upadrashta.
+\newblock Private equity, consumers, and competition: Evidence from the nursing home industry.
+\newblock \emph{SSRN Electronic Journal}, 2020.
+\newblock \doi{10.2139/ssrn.3626558}.
+
+\bibitem[Castle and Engberg(2008)]{castle2008further}
+Nicholas~G. Castle and John Engberg.
+\newblock Further examination of the influence of caregiver staffing levels on nursing home quality.
+\newblock \emph{The Gerontologist}, 48\penalty0 (4):\penalty0 464--476, 2008.
+\newblock \doi{10.1093/GERONT/48.4.464}.
+
+\end{thebibliography}
