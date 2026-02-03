@@ -159,17 +159,116 @@ The STROBE flow diagram (Figure 1) documents the selection of the analytic sampl
 
 The selection process for the analytic sample is illustrated in the STROBE flow diagram presented in Figure 1. We began with the universe of nursing home facilities reporting to the PBJ system between 2022 and 2024. After excluding facilities with incomplete geographic data and those outside the contiguous United States, we applied clinical and statistical filters to ensure a robust sample. The exclusion of extreme outliers ($|z| > 4$) was particularly critical for our spatial analysis, as it prevented a small number of facilities with reporting errors from disproportionately influencing the Moran's I and regression coefficients. The final analytic sample of 13,603 facilities represents approximately 90\% of all Medicare-certified nursing homes in the United States, providing a highly representative foundation for our geographic analysis.
 
-The characteristics of the sample across the study period are detailed in Table 1 (represented by the regional breakdown). In 2022Q1, the sample included 14,716 facilities, which slightly decreased to 14,466 by 2024Q4. This decrease reflects both facility closures and the impact of the strict outlier removal protocol across different quarters. The distribution of facilities across Census regions remained stable, with the South (n = 5,202 in 2024Q4) and Midwest (n = 4,663) representing the largest clusters of facilities. The Northeast (n = 2,351) and West (n = 2,250) provided smaller but geographically distinct samples.
+\begin{figure}[htbp]
+\centering
+\fbox{\begin{minipage}{0.85\textwidth}
+\centering
+\vspace{2cm}
+\textbf{FIGURE 1: STROBE FLOW DIAGRAM} \\
+\textit{[Detailed Sample Selection Process]} \\
+\vspace{1cm}
+Total Initial Facilities: 15,482 \\
+Excluded (Outside Contiguous US): 421 \\
+Excluded (Incomplete PBJ Data): 912 \\
+Excluded (Zero Census/Hours): 235 \\
+Excluded (Outliers $|z|>4$): 311 \\
+\textbf{Final Analytic Sample: 13,603} \\
+\vspace{2cm}
+\end{minipage}}
+\caption{STROBE flow diagram documenting the study population selection process. The diagram illustrates the sequential application of exclusion criteria to arrive at the final analytic sample of 13,603 nursing home facilities used in the proximity regression analysis.}
+\label{fig:strobe}
+\end{figure}
+
+
+
+
+The characteristics of the sample across the study period are detailed in Table 1 (represented by the regional breakdown). In 2022Q1, the sample included 14,716 facilities, which slightly decreased to 14,466 by 2024Q4.
+
+\begin{table}[htbp]
+\centering
+\caption{Characteristics of Sample Facilities by Census Region (2024Q4)}
+\label{tab:facility_chars}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{lccc}
+\toprule
+Census Region & Number of Facilities (n) & Mean Contract Ratio & SD \\
+\midrule
+Midwest & 4,663 & 0.062 & 0.101 \\
+Northeast & 2,351 & 0.102 & 0.121 \\
+South & 5,202 & 0.040 & 0.084 \\
+West & 2,250 & 0.052 & 0.091 \\
+\midrule
+\textbf{Total Sample} & \textbf{14,466} & \textbf{0.058} & \textbf{0.098} \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\begin{tablenotes}
+\small
+\item Note: Data from 2024Q4. SD = Standard Deviation. Analytic sample represents facilities after outlier screening ($|z| > 4$).
+\end{tablenotes}
+\end{table}
+
+
+
+ This decrease reflects both facility closures and the impact of the strict outlier removal protocol across different quarters. The distribution of facilities across Census regions remained stable, with the South (n = 5,202 in 2024Q4) and Midwest (n = 4,663) representing the largest clusters of facilities. The Northeast (n = 2,351) and West (n = 2,250) provided smaller but geographically distinct samples.
 
 \subsection{Intensification of Spatial Clustering}
 
 Our first and second hypotheses (H1 and H2) concerned the existence and intensification of spatial clustering. As shown in Table 2, the Global Moran's I for the contract staffing ratio was positive and highly significant (p < 0.001) at both time points. In 2022Q1, the Moran's I was 0.050, indicating a statistically significant but relatively moderate degree of geographic clustering. By 2024Q4, however, the Moran's I nearly doubled to 0.107 (p < 0.001).
+
+\begin{table}[htbp]
+\centering
+\caption{Spatial Autocorrelation (Global Moran's I) of Contract Staffing Ratio}
+\label{tab:morans_i}
+\begin{tabular}{lcc}
+\toprule
+Quarter & Global Moran's I & p-value \\
+\midrule
+2022Q1 & 0.0501 & < 0.001 \\
+2024Q4 & 0.1068 & < 0.001 \\
+\bottomrule
+\end{tabular}
+\begin{tablenotes}
+\small
+\item Note: Based on state-level spatial weights. A positive Moran's I indicates geographic clustering of similar contract staffing ratios.
+\end{tablenotes}
+\end{table}
+
 
 This nearly 113\% increase in the Moran's I value is a major finding. It suggests that while the overall "peak" of agency staffing may have passed, the remaining usage has become significantly more concentrated geographically. In the context of Spatial Diffusion Theory, this represents a transition from "expansion diffusion" (where agency use spread rapidly across almost all markets during the pandemic) to a "clustering" phase. In this latter phase, agency labor has become a structural fixture in specific regions, even as it fades in others. The high significance of the p-values across both periods confirms that contract staffing ratios are not randomly distributed but are governed by geographic proximity and regional market conditions.
 
 \subsection{The Contagion Effect: Proximity Regression Results}
 
 The core of our analysis, the proximity regression model, provides strong empirical support for the contagion hypothesis (H3). The results of the OLS regression are presented in Table 3. The model demonstrated a robust fit, with an F-statistic of 295.6 (p < 0.001) and an Adjusted $R^2$ of 0.098. While a 10\% variance explanation may seem modest, it is remarkably high for a cross-sectional staffing model that does not include resident acuity or financial data, highlighting the power of geographic peer effects.
+
+\begin{table}[htbp]
+\centering
+\caption{Proximity Regression: Predictors of Facility Contract Staffing Ratio}
+\label{tab:regression}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{lcccc}
+\toprule
+\textbf{Predictor} & \textbf{Coefficient} & \textbf{Std. Error} & \textbf{t-statistic} & \textbf{p-value} \\
+\midrule
+Intercept & 0.0242 & 0.007 & 3.700 & < 0.001 \\
+Peer Contract Ratio (County) & 0.3963 & 0.014 & 27.382 & < 0.001 \\
+Facility Size (log resident census) & 0.0031 & 0.002 & 2.021 & 0.043 \\
+\addlinespace
+\textit{Census Region (ref: Midwest)} & & & & \\
+\quad Northeast & 0.0232 & 0.003 & 9.085 & < 0.001 \\
+\quad South & -0.0135 & 0.002 & -6.755 & < 0.001 \\
+\quad West & -0.0089 & 0.002 & -3.588 & < 0.001 \\
+\midrule
+\textbf{Model Diagnostics} & \multicolumn{4}{l}{Adjusted $R^2$ = 0.098, F(5, 13597) = 295.6, p < 0.001} \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\begin{tablenotes}
+\small
+\item Note: N = 13,603 unique facilities. Proximity regression tests the contagion effect of county-level peer staffing ratios.
+\end{tablenotes}
+\end{table}
+
 
 The most critical finding is the coefficient for the **Peer Contract Staffing Ratio (County)**. The coefficient was 0.3963 (p < 0.001, t = 27.38). This indicates that, holding all other factors constant, a 10-percentage point increase in the average contract staffing ratio of a facility's county-level peers is associated with a 3.96-percentage point increase in that facility's own ratio. This effect size is substantial and represents the strongest predictor in our model. It provides clear evidence of a "neighborhood effect" or "contagion" in labor practices: a facility's staffing strategy is profoundly influenced by the behavior of its immediate geographic competitors.
 
@@ -179,11 +278,50 @@ Facility size also played a significant but smaller role. The coefficient for **
 
 Table 4 (Regional Variation) and Figure 2 (Regional Distribution) provide a detailed look at the geographic landscape of contract staffing. Contrary to some expectations that the trend would be most persistent in the South, our analysis shows that the **Northeast** and **Midwest** have become the primary epicenters of agency labor persistence. In 2024Q4, the Northeast maintained a Mean Contract Ratio of 0.102 (SD = 0.121), which was only a slight decrease from its 2022Q1 level of 0.122. This represents a 16.4\% reduction—the smallest regional decline observed. This persistence in the Northeast suggests that the region's labor market has reached a new equilibrium where high agency reliance is a structural necessity.
 
+\begin{table}[htbp]
+\centering
+\caption{Temporal Trends in Mean Contract Staffing Ratios by Region}
+\label{tab:regional_trends}
+\begin{adjustbox}{max width=\textwidth}
+\begin{tabular}{lcccc}
+\toprule
+Quarter & Midwest & Northeast & South & West \\
+\midrule
+2022Q1 Mean (SD) & 0.102 (0.141) & 0.122 (0.140) & 0.097 (0.142) & 0.075 (0.119) \\
+2024Q4 Mean (SD) & 0.062 (0.101) & 0.102 (0.121) & 0.040 (0.084) & 0.052 (0.091) \\
+\midrule
+\% Change & -39.2\% & -16.4\% & -58.7\% & -30.7\% \\
+\bottomrule
+\end{tabular}
+\end{adjustbox}
+\end{table}
+
+
+\begin{figure}[htbp]
+\centering
+\begin{adjustbox}{max width=0.85\textwidth}
+\includegraphics{../04-analysis/outputs/figures/regional_distribution.png}
+\end{adjustbox}
+\caption{Geographic distribution of mean contract staffing ratios by Census region in 2024Q4. The boxplots demonstrate the persistence of high contract labor reliance in the Northeast compared to the significant reduction observed in the South. The variation within regions highlights the presence of specific geographic "hotspots" of agency dependency.}
+\label{fig:regional_dist}
+\end{figure}
+
+
 In contrast, the **South** experienced the most dramatic "cooling" of the contract staffing market. The mean ratio in the South dropped from 0.097 in 2022Q1 to 0.040 in 2024Q4—a massive 58.7\% decrease. This suggests that Southern facilities were more successful in rebuilding their permanent workforces or that the economic incentives for agency work in the South were more transient than in the Northeast. The **West** followed a similar trajectory, dropping from 0.075 to 0.052, a 30.7\% reduction. The **Midwest** also saw a significant reduction of 39.2\%, moving from a mean of 0.102 to 0.062, although it remains the region with the second-highest reliance on agency labor.
 
 The regression results in Table 3 confirm these disparities with high statistical precision. Using the Midwest as the reference group, facilities in the Northeast were significantly more likely to have higher ratios (Coeff: 0.0232, p < 0.001), indicating that even after controlling for county-level peer effects and facility size, Northeastern facilities maintain a unique regional "premium" on agency labor. Conversely, facilities in the South (Coeff: -0.0135, p < 0.001) and West (Coeff: -0.0089, p < 0.001) were significantly lower than the Midwest benchmark. These findings emphasize that geography is not just a proxy for other factors but a fundamental determinant of staffing strategy in its own right.
 
 These regional findings are further illuminated by Figure 3, which identifies the "Top States" for diffusion in 2024Q4. The highest ratios are found in a surprising mix of rural and high-cost states: **Vermont (0.235)**, **North Dakota (0.155)**, and **Montana (0.137)**. The presence of these states in the top tier suggests that rural markets may be particularly vulnerable to the "contagion" of agency labor. In these markets, where the absolute supply of permanent nurses is limited, the entry of even a single staffing agency can disrupt the entire regional labor market, leading to high levels of dependency as facilities compete for the same small pool of agency workers.
+
+\begin{figure}[htbp]
+\centering
+\begin{adjustbox}{max width=0.85\textwidth}
+\includegraphics{../04-analysis/outputs/figures/top_states_diffusion.png}
+\end{adjustbox}
+\caption{Top 5 states with the highest mean contract staffing ratios in 2024Q4. Vermont, North Dakota, and Montana represent the highest tiers of diffusion, suggesting a high degree of "agency capture" in rural markets where thin labor supply makes facilities particularly vulnerable to contract labor contagion.}
+\label{fig:top_states}
+\end{figure}
+
 
 \subsection{Mapping the Intensity of Contract Staffing Diffusion}
 
@@ -193,6 +331,16 @@ What is particularly notable in Figure 4 is the "contiguity" of high-use areas. 
 
 The interpretation of Figure 4 suggests that "geographic legacy" plays a major role in workforce stability. The clusters identified are not merely random; they align with regions that experienced some of the earliest and most severe waves of the COVID-19 pandemic, which may have permanently altered their local healthcare labor ecosystems. The map serves as a diagnostic tool for policymakers, identifying specific "workforce risk zones" where the structural dependency on contract labor is most acute and where facility-level interventions are likely to be overwhelmed by regional market forces.
 
+\begin{figure}[htbp]
+\centering
+\begin{adjustbox}{max width=0.85\textwidth}
+\includegraphics{../04-analysis/outputs/figures/contract_ratio_map_2024.png}
+\end{adjustbox}
+\caption{Geographic Distribution of Contract Staffing Intensity (2024Q4). The map illustrates the state-level average contract staffing ratios, highlighting the intense clustering in the Northeast and the Northern Plains. Vermont and North Dakota exhibit the highest intensity, while the South shows significantly lower reliance.}
+\label{fig:map_2024}
+\end{figure}
+
+
 \subsection{Spatial Intensification and the Evolution of Hotspots}
 
 Figure 5 presents the spatial change in contract staffing intensity between 2022 and 2024, providing a dynamic view of how the crisis has evolved. While the national mean ratio decreased during this period, Figure 5 highlights "hotspots" of intensification where contract staffing use grew or deepened despite the overall national trend. We identify significant "red zones" in states like Vermont, North Dakota, and parts of Pennsylvania. In these areas, the reliance on agency labor did not merely persist; it expanded, suggesting a "deepening" of the contagion effect.
@@ -200,6 +348,16 @@ Figure 5 presents the spatial change in contract staffing intensity between 2022
 This intensification is a critical finding that contradicts the narrative of a simple "post-pandemic recovery." In the identified hotspots, the "vicious cycle" of agency dependency appears to have accelerated. As some facilities in these regions increased their agency use, the resulting pressure on the local permanent labor pool likely forced neighboring facilities to follow suit, even as the rest of the country was cooling down. The map shows that the "contagion" of contract labor can move against the national trend in regions with specific vulnerabilities, such as thin labor supply or high regulatory pressure.
 
 The "intensification" visible in Figure 5 also suggests a geographic "sorting" of the nursing home industry. We are seeing a divergence between "low-agency regions" (much of the South and West) and "high-agency clusters" (Northeast and Northern Plains). This divergence has significant implications for regional disparities in care quality and financial sustainability. The map clearly identifies where the "structural" transformation of the labor market is most advanced, pointing to regions where the traditional permanent-staffing model may be permanently compromised without significant external intervention.
+
+\begin{figure}[htbp]
+\centering
+\begin{adjustbox}{max width=0.85\textwidth}
+\includegraphics{../04-analysis/outputs/figures/spatial_hotspots_map.png}
+\end{adjustbox}
+\caption{Change in Contract Staffing Intensity (2022--2024). This map visualizes the diffusion and intensification of contract staffing. Red and orange areas indicate "hotspots" where agency reliance grew or remained persistently high despite national downward trends, while blue areas indicate significant reductions in agency labor.}
+\label{fig:hotspots_map}
+\end{figure}
+
 
 \newpage
 \section{Discussion}
@@ -253,151 +411,6 @@ Furthermore, the data screening process, while necessary for statistical validit
 \section{Conclusion}
 
 Contract staffing in U.S. nursing homes has undergone a fundamental transformation. What began as a nationwide crisis response has evolved into a structural feature of specific regional labor markets, sustained by geographic clustering and proximity-driven contagion. Our findings show that nursing homes are no longer making staffing decisions in isolation; they are part of a highly correlated spatial network where the practices of neighbors profoundly shape their own reliance on precarious labor. As the industry moves toward new federal staffing standards, policymakers must recognize that workforce stabilization is not just a facility-level challenge but a spatial epidemiological one. Only by addressing the regional market failures and contagion effects that drive agency dependency can we ensure a stable, permanent, and high-quality nursing home workforce for the future.
-
-\newpage
-\begin{table}[htbp]
-\centering
-\caption{Characteristics of Sample Facilities by Census Region (2024Q4)}
-\label{tab:facility_chars}
-\begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{lccc}
-\toprule
-Census Region & Number of Facilities (n) & Mean Contract Ratio & SD \\
-\midrule
-Midwest & 4,663 & 0.062 & 0.101 \\
-Northeast & 2,351 & 0.102 & 0.121 \\
-South & 5,202 & 0.040 & 0.084 \\
-West & 2,250 & 0.052 & 0.091 \\
-\midrule
-\textbf{Total Sample} & \textbf{14,466} & \textbf{0.058} & \textbf{0.098} \\
-\bottomrule
-\end{tabular}
-\end{adjustbox}
-\begin{tablenotes}
-\small
-\item Note: Data from 2024Q4. SD = Standard Deviation. Analytic sample represents facilities after outlier screening ($|z| > 4$).
-\end{tablenotes}
-\end{table}
-
-\begin{table}[htbp]
-\centering
-\caption{Spatial Autocorrelation (Global Moran's I) of Contract Staffing Ratio}
-\label{tab:morans_i}
-\begin{tabular}{lcc}
-\toprule
-Quarter & Global Moran's I & p-value \\
-\midrule
-2022Q1 & 0.0501 & < 0.001 \\
-2024Q4 & 0.1068 & < 0.001 \\
-\bottomrule
-\end{tabular}
-\begin{tablenotes}
-\small
-\item Note: Based on state-level spatial weights. A positive Moran's I indicates geographic clustering of similar contract staffing ratios.
-\end{tablenotes}
-\end{table}
-
-\begin{table}[htbp]
-\centering
-\caption{Proximity Regression: Predictors of Facility Contract Staffing Ratio}
-\label{tab:regression}
-\begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{lcccc}
-\toprule
-\textbf{Predictor} & \textbf{Coefficient} & \textbf{Std. Error} & \textbf{t-statistic} & \textbf{p-value} \\
-\midrule
-Intercept & 0.0242 & 0.007 & 3.700 & < 0.001 \\
-Peer Contract Ratio (County) & 0.3963 & 0.014 & 27.382 & < 0.001 \\
-Facility Size (log resident census) & 0.0031 & 0.002 & 2.021 & 0.043 \\
-\addlinespace
-\textit{Census Region (ref: Midwest)} & & & & \\
-\quad Northeast & 0.0232 & 0.003 & 9.085 & < 0.001 \\
-\quad South & -0.0135 & 0.002 & -6.755 & < 0.001 \\
-\quad West & -0.0089 & 0.002 & -3.588 & < 0.001 \\
-\midrule
-\textbf{Model Diagnostics} & \multicolumn{4}{l}{Adjusted $R^2$ = 0.098, F(5, 13597) = 295.6, p < 0.001} \\
-\bottomrule
-\end{tabular}
-\end{adjustbox}
-\begin{tablenotes}
-\small
-\item Note: N = 13,603 unique facilities. Proximity regression tests the contagion effect of county-level peer staffing ratios.
-\end{tablenotes}
-\end{table}
-
-\begin{table}[htbp]
-\centering
-\caption{Temporal Trends in Mean Contract Staffing Ratios by Region}
-\label{tab:regional_trends}
-\begin{adjustbox}{max width=\textwidth}
-\begin{tabular}{lcccc}
-\toprule
-Quarter & Midwest & Northeast & South & West \\
-\midrule
-2022Q1 Mean (SD) & 0.102 (0.141) & 0.122 (0.140) & 0.097 (0.142) & 0.075 (0.119) \\
-2024Q4 Mean (SD) & 0.062 (0.101) & 0.102 (0.121) & 0.040 (0.084) & 0.052 (0.091) \\
-\midrule
-\% Change & -39.2\% & -16.4\% & -58.7\% & -30.7\% \\
-\bottomrule
-\end{tabular}
-\end{adjustbox}
-\end{table}
-
-\newpage
-\begin{figure}[htbp]
-\centering
-\fbox{\begin{minipage}{0.85\textwidth}
-\centering
-\vspace{2cm}
-\textbf{FIGURE 1: STROBE FLOW DIAGRAM} \\
-\textit{[Detailed Sample Selection Process]} \\
-Total Initial Facilities: 15,482 \\
-Excluded (Outside Contiguous US): 421 \\
-Excluded (Incomplete PBJ Data): 912 \\
-Excluded (Zero Census/Hours): 235 \\
-Excluded (Outliers $|z|>4$): 311 \\
-\textbf{Final Analytic Sample: 13,603} \\
-\vspace{2cm}
-\end{minipage}}
-\caption{STROBE flow diagram documenting the study population selection process. The diagram illustrates the sequential application of exclusion criteria to arrive at the final analytic sample of 13,603 nursing home facilities used in the proximity regression analysis.}
-\label{fig:strobe}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\begin{adjustbox}{max width=0.85\textwidth}
-\includegraphics{../04-analysis/outputs/figures/regional_distribution.png}
-\end{adjustbox}
-\caption{Geographic distribution of mean contract staffing ratios by Census region in 2024Q4. The boxplots demonstrate the persistence of high contract labor reliance in the Northeast compared to the significant reduction observed in the South. The variation within regions highlights the presence of specific geographic "hotspots" of agency dependency.}
-\label{fig:regional_dist}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\begin{adjustbox}{max width=0.85\textwidth}
-\includegraphics{../04-analysis/outputs/figures/top_states_diffusion.png}
-\end{adjustbox}
-\caption{Top 5 states with the highest mean contract staffing ratios in 2024Q4. Vermont, North Dakota, and Montana represent the highest tiers of diffusion, suggesting a high degree of "agency capture" in rural markets where thin labor supply makes facilities particularly vulnerable to contract labor contagion.}
-\label{fig:top_states}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\begin{adjustbox}{max width=0.85\textwidth}
-\includegraphics{../04-analysis/outputs/figures/contract_ratio_map_2024.png}
-\end{adjustbox}
-\caption{Geographic Distribution of Contract Staffing Intensity (2024Q4). The map illustrates the state-level average contract staffing ratios, highlighting the intense clustering in the Northeast and the Northern Plains. Vermont and North Dakota exhibit the highest intensity, while the South shows significantly lower reliance.}
-\label{fig:map_2024}
-\end{figure}
-
-\begin{figure}[htbp]
-\centering
-\begin{adjustbox}{max width=0.85\textwidth}
-\includegraphics{../04-analysis/outputs/figures/spatial_hotspots_map.png}
-\end{adjustbox}
-\caption{Change in Contract Staffing Intensity (2022--2024). This map visualizes the diffusion and intensification of contract staffing. Red and orange areas indicate "hotspots" where agency reliance grew or remained persistently high despite national downward trends, while blue areas indicate significant reductions in agency labor.}
-\label{fig:hotspots_map}
-\end{figure}
 
 \newpage
 \bibliographystyle{unsrtnat}
