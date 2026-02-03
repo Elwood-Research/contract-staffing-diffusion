@@ -1,0 +1,12 @@
+*.log
+*.aux
+*.bbl
+*.blg
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+.DS_Store
+__pycache__/
+!05-manuscript/manuscript.pdf
