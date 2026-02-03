@@ -12,6 +12,11 @@ This study investigates the geographic diffusion of contract nursing staffing ac
 ## Methodology
 The study utilizes facility-level PBJ data to measure the ratio of contract hours to total hours for Registered Nurses (RNs), Licensed Practical Nurses (LPNs), and Certified Nursing Assistants (CNAs). Spatial autocorrelation and proximity regression models were employed to test the diffusion hypotheses.
 
+## Visualizations
+The study includes advanced spatial mapping to visualize the diffusion:
+- **Contract Ratio Map (2024)**: State-level choropleth map showing the intensity of agency labor reliance.
+- **Spatial Hotspots Map**: Identifying regional clusters and "staffing corridors" where agency usage is most concentrated.
+
 ## Repository Structure
 - `01-literature/`: Literature review and BibTeX references.
 - `02-research-plan/`: Hypotheses and study design.

@@ -11,10 +11,10 @@ In the context of **Spatial Diffusion Theory** (Hägerstrand, 1967), this indica
 ## 2. Connection to Research Hypotheses
 
 ### H1: Spatial Clustering (Supported)
-The significant positive Moran’s I in both periods confirms that contract staffing is not randomly distributed. Facilities with high reliance on contract labor are geographically clustered, likely due to shared regional labor shortages and the presence of localized staffing agency networks.
+The significant positive Moran’s I in both periods confirms that contract staffing is not randomly distributed. Facilities with high reliance on contract labor are geographically clustered, likely due to shared regional labor shortages and the presence of localized staffing agency networks. The 2024 map (Figure 4) clearly illustrates these clusters, particularly in the Northeast corridor.
 
 ### H2: Temporal Expansion and Diffusion (Supported with Nuance)
-While the geographic extent (mean usage) contracted, the *strength* of the spatial pattern intensified. This suggests that while fewer facilities overall are using contract staff, those that do are increasingly likely to be surrounded by other high-user facilities. The diffusion has shifted from a "rising tide" to a "concentrated pooling" effect.
+While the geographic extent (mean usage) contracted, the *strength* of the spatial pattern intensified. This suggests that while fewer facilities overall are using contract staff, those that do are increasingly likely to be surrounded by other high-user facilities. The change map (Figure 5) identifies specific states like Vermont and North Dakota where intensity increased despite the national cooling trend. The diffusion has shifted from a "rising tide" to a "concentrated pooling" effect.
 
 ### H3: Proximity and Contagion (Strongly Supported)
 The **Proximity Regression** results show that a facility’s contract staffing ratio is strongly predicted by the usage of its neighbors (Coeff: **0.3963**, p < 0.001). This provides empirical evidence for the **Contagion Effect**: as one facility in a county adopts high agency usage, it likely triggers similar adoption in neighboring facilities through labor market competition or by making a local agency branch commercially viable.

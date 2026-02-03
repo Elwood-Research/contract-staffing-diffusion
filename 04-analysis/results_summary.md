@@ -29,3 +29,8 @@ Quarter Census Region  Mean Contract Ratio       SD    N
  2024Q4          West             0.051991 0.090621 2250
 
 **Note:** All variables have been mapped to human-readable labels in the final outputs.
+
+## Geographic Visualizations
+- **Figure 3: Top States for Diffusion (2024Q4)**: Identifies Vermont (23.5%), North Dakota (15.5%), and Montana (13.7%) as the states with the highest reliance on agency labor.
+- **Figure 4: Geographic Distribution of Contract Staffing Intensity (2024Q4)**: A state-level choropleth map revealing the "staffing corridors" of high agency usage in the Northeast and Northern Plains.
+- **Figure 5: Spatial Change Map (2022-2024)**: Visualizes the dynamic "hotspots" where contract staffing intensity grew or deepened, particularly in VT and ND, highlighting the regional intensification of the crisis.
