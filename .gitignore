@@ -7,6 +7,9 @@
 *.fls
 *.fdb_latexmk
 *.synctex.gz
+*.nav
+*.snm
 .DS_Store
 __pycache__/
 !05-manuscript/manuscript.pdf
+!07-presentation/presentation.pdf
