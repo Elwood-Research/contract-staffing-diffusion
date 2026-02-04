@@ -1,0 +1,135 @@
+\documentclass{beamer}
+\usetheme{Madrid}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{adjustbox}
+
+\title[Contract Staffing Diffusion]{Contract Staffing Diffusion in U.S. Nursing Homes}
+\author{Elwood Research}
+\institute{PBJ Staffing Study}
+\date{February 2026}
+
+\begin{document}
+
+% Slide 1: Title
+\begin{frame}
+    \titlepage
+\end{frame}
+
+% Slide 2: Background
+\begin{frame}{Background: The Post-Pandemic Workforce Crisis}
+    \begin{itemize}
+        \item \textbf{Transitioning Landscapes:} The COVID-19 pandemic triggered an unprecedented reliance on external staffing agencies.
+        \item \textbf{Workforce Crisis:} Acute labor shortages forced facilities to adopt contract staffing as a temporary emergency measure.
+        \item \textbf{Structural Shift:} Post-pandemic data suggests this "temporary" solution is becoming a structural feature of specific regional markets.
+        \item \textbf{Market Dynamics:} Rising costs and labor market competition have created new vulnerabilities in the long-term care sector.
+    \end{itemize}
+\end{frame}
+
+% Slide 3: Research Question \& Hypotheses
+\begin{frame}{Research Question \& Hypotheses}
+    \textbf{Research Question:} How has the geographic distribution and diffusion of contract staffing evolved in the post-pandemic era?
+    
+    \begin{block}{Hypotheses}
+        \begin{itemize}
+            \item \textbf{H1: Spatial Clustering:} Contract staffing is not randomly distributed; it exhibits significant geographic clustering.
+            \item \textbf{H2: Temporal Expansion:} The practice has diffused and intensified in specific regional hotspots over time.
+            \item \textbf{H3: Contagion Effect:} A facility's reliance on contract labor is positively influenced by the practices of its geographic neighbors.
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+% Slide 4: Theoretical Framework
+\begin{frame}{Theoretical Framework: Spatial Diffusion Theory}
+    \begin{itemize}
+        \item \textbf{Hägerstrand's Diffusion Theory:} Processes spread through geographic space via social and economic networks.
+        \item \textbf{Expansion vs. Intensification:} While the "rising tide" of the pandemic may have receded, the practice is "pooling" in specific areas.
+        \item \textbf{Neighborhood Effect:} Facilities adopt labor practices observed in their local market to remain competitive or survive.
+        \item \textbf{Agency Capture:} In specific clusters, the labor supply becomes mediated by third-party agencies, creating a dependency loop.
+    \end{itemize}
+\end{frame}
+
+% Slide 5: Methodology
+\begin{frame}{Methodology}
+    \begin{itemize}
+        \item \textbf{Data Source:} CMS Payroll-Based Journal (PBJ) data from 2022 Q1 to 2024 Q4.
+        \item \textbf{Sample:} Over 14,000 skilled nursing facilities across the United States.
+        \item \textbf{Spatial Autocorrelation:} Calculated \textbf{Global Moran’s I} to detect non-random geographic patterns.
+        \item \textbf{Proximity Regression:} Modeled the relationship between a facility's contract ratio and the mean ratio of its geographic neighbors.
+        \item \textbf{Outlier Control:} Strict screening (z-score > 4) to ensure results represent structural trends rather than noise.
+    \end{itemize}
+\end{frame}
+
+% Slide 6: Results: Intensified Clustering
+\begin{frame}{Results: Intensified Clustering}
+    \begin{itemize}
+        \item \textbf{Spatial Signal:} The Global Moran’s I nearly \textbf{doubled} between 2022 and 2024.
+        \item \textbf{2022 Q1 Moran’s I:} 0.0501 (p < 0.001)
+        \item \textbf{2024 Q4 Moran’s I:} 0.1068 (p < 0.001)
+        \item \textbf{Interpretation:} Even as overall mean usage slightly decreased, the geographic "clumping" of high-usage facilities became significantly more pronounced.
+        \item \textbf{Shift:} From a broad nationwide surge to concentrated regional hotspots.
+    \end{itemize}
+\end{frame}
+
+% Slide 7: Results: Geographic Trends
+\begin{frame}{Results: Geographic Trends}
+    \begin{center}
+        \includegraphics[width=0.8\textwidth]{../04-analysis/outputs/figures/contract_ratio_map_2024.png}
+    \end{center}
+    \begin{itemize}
+        \item \textbf{Hotspot States (2024):} Vermont (0.235), North Dakota (0.155), and Montana (0.137) show extreme reliance.
+        \item \textbf{Regional Variation:} The Northeast and Midwest maintain the highest structural dependency.
+    \end{itemize}
+\end{frame}
+
+% Slide 8: Results: The Contagion Effect
+\begin{frame}{Results: The Contagion Effect}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \includegraphics[width=\textwidth]{../04-analysis/outputs/figures/county_contract_map_2024.png}
+            \end{center}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \textbf{Proximity Regression:}
+            \begin{itemize}
+                \item \textbf{Neighbor Effect:} 0.3963 (p < 0.001)
+                \item \textbf{Finding:} A 10\% increase in neighbors' contract usage predicts a ~4\% increase in a facility's own usage.
+                \item \textbf{Contagion:} Strong evidence that staffing practices spread through local market competition.
+            \end{itemize}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+% Slide 9: Discussion: Rural Vulnerability
+\begin{frame}{Discussion: Rural Vulnerability \& Agency Capture}
+    \begin{itemize}
+        \item \textbf{Rural Fragility:} High ratios in states like VT, ND, and MT highlight a "vicious cycle" where thin labor pools are easily monopolized by agencies.
+        \item \textbf{Agency Capture:} Facilities in these markets face "take-it-or-leave-it" pricing, threatening financial sustainability.
+        \item \textbf{Policy Mismatch:} Traditional facility-level staffing mandates may be impossible to meet in "captured" markets without addressing the agency supply side.
+        \item \textbf{Market Concentration:} The clustering effect suggests that agencies target specific regions to maximize their market power.
+    \end{itemize}
+\end{frame}
+
+% Slide 10: Conclusion \& Policy Recommendations
+\begin{frame}{Conclusion \& Policy Recommendations}
+    \begin{block}{Key Takeaways}
+        \begin{itemize}
+            \item Contract staffing has transitioned from a crisis response to a structural regional feature.
+            \item Geographic proximity is a primary driver of adoption (The Contagion Effect).
+        \end{itemize}
+    \end{block}
+    
+    \begin{block}{Recommendations}
+        \begin{itemize}
+            \item \textbf{Cluster-Based Interventions:} Policy must address regional markets, not just individual facilities.
+            \item \textbf{Rural Support:} Specific workforce pipelines and distance-based reimbursement for rural "hotspots."
+            \item \textbf{Price Transparency:} Regionally coordinated caps on agency margins to prevent "jurisdiction hopping."
+        \end{itemize}
+    \end{block}
+\end{frame}
+
+\end{document}
